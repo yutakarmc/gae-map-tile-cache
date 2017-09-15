@@ -34,8 +34,7 @@ if($tileImage){
 }
 
 // Try to get from Google Storage
-$storagePath = "gs://staging.".$projectName.".appspot.com/".$tileImageKey;
-//$gsPath = "gs://".$projectName.".appspot.com/".$layer."/".$zoom."/".$x."/".$filename;
+$storagePath =  "gs://".$projectName.".appspot.com/".$tileImageKey;
 
 $tileImage = file_get_contents($storagePath);
 if($tileImage){
