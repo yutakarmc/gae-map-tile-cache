@@ -1,0 +1,22 @@
+application: gae-map-tile-cache
+version: 1
+runtime: php55
+api_version: 1
+
+automatic_scaling:
+  min_idle_instances: 0
+  max_idle_instances: 1
+  min_pending_latency: 2000ms
+  max_pending_latency: automatic
+  max_concurrent_requests: 40
+
+handlers:
+- url: /worker
+  script: store.php
+
+- url: /demo/.*
+  static_files: demo/map.html
+  upload: demo/map.html
+
+- url: /.*
+  script: tilecache.php
